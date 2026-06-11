@@ -14,15 +14,18 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 
 ## Latest Articles
 
-- [How to Measure AI Agent ROI: A Practical Framework for Enterprise Teams](./posts/how-to-measure-ai-agent-roi-framework.md)
-- [AI Agent Evaluation: Beyond Simple Accuracy Metrics](./posts/ai-agent-evaluation-beyond-accuracy.md)
+- [LLM Cost Optimization: Production Patterns for 2026](./posts/llm-cost-optimization-production-patterns.md) — 🔥 New
 - [Building Multi-Agent Systems: Architecture Patterns for Production](./posts/multi-agent-architecture-patterns.md)
 - [Cost-Effective AI Agent Deployment: From $0 to Production](./posts/cost-effective-ai-agent-deployment.md)
+- [AI Agent Evaluation: Beyond Simple Accuracy Metrics](./posts/ai-agent-evaluation-beyond-accuracy.md)
+- [How to Measure AI Agent ROI: A Practical Framework for Enterprise Teams](./posts/how-to-measure-ai-agent-roi-framework.md)
 
 ## Community Contributions
 
 | Project | Type | Topic |
 |---------|------|-------|
+| [Open Multi-Agent](https://github.com/open-multi-agent/open-multi-agent/issues/283) | PR Review | LiteLLM provider adapter with cost routing — 🔥 New |
+| [Open Multi-Agent](https://github.com/open-multi-agent/open-multi-agent/issues/223) | Proposal | Cross-provider reasoning fallback (`<thinking>` text) — 🔥 New |
 | [Dify](https://github.com/langgenius/dify/discussions/37333) | Discussion | Enterprise Multi-Tenancy Architecture Considerations |
 | [Browser-Use](https://github.com/browser-use/browser-use/discussions/5018) | Discussion | Stateful Session Models for Long-Running Web Agent Workflows |
 | [Khoj](https://github.com/khoj-ai/khoj/discussions/1341) | Discussion | Enterprise Knowledge Infrastructure Patterns for AI Agents |
