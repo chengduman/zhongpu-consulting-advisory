@@ -15,6 +15,7 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 ## Latest Articles
 
 - [How to Measure AI Agent ROI: A Practical Framework for Enterprise Teams](./posts/how-to-measure-ai-agent-roi-framework.md)
+- [AI Agent Evaluation: Beyond Simple Accuracy Metrics](./posts/ai-agent-evaluation-beyond-accuracy.md)
 
 ## Community Contributions
 
