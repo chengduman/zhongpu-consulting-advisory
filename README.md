@@ -12,7 +12,30 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 - **Deployment & Integration** — Seamless integration with existing CRM, ERP, knowledge bases, and communication channels
 - **Monitoring & Optimization** — Continuous evaluation of agent performance, user satisfaction, and cost efficiency
 
-## Latest Articles
+## 🛠 MCP Server for AI Agents
+
+Our research and analysis tools are available as an **[MCP Server](mcp-server/README.md)** — AI agents can directly call us via the Model Context Protocol.
+
+| Tool | Price | Description |
+|------|:----:|-------------|
+| `deep_scan` | $2 | Multi-source parallel research across web, academic, OSS |
+| `cross_validate` | $3 | Verify claims against 3+ independent sources |
+| `synthesize_report` | $5 | Generate structured report from research data |
+
+```json
+// Claude Code / Cursor config
+{
+  "mcpServers": {
+    "zhongpu-consulting": {
+      "command": "python",
+      "args": ["path/to/zhongpu_server.py"],
+      "env": { "ZHONGPU_API_KEY": "sk-zp-..." }
+    }
+  }
+}
+```
+
+## 📚 Latest Articles
 
 - [LLM Cost Optimization: Production Patterns for 2026](./posts/llm-cost-optimization-production-patterns.md) — 🔥 New
 - [Building Multi-Agent Systems: Architecture Patterns for Production](./posts/multi-agent-architecture-patterns.md)
