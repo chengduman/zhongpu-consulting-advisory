@@ -47,6 +47,11 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 
 **[📩 Start a Consultation](https://github.com/chengduman/zhongpu-consulting-advisory/issues/new?template=consultation.yml)** — Open an issue to request service
 
+## Payment
+
+Services are available via [PayPal.Me/chengduman](https://paypal.me/chengduman).
+Start with a [$2 agent review](https://chengduman.github.io/zhongpu-consulting-advisory/services.html).
+
 ## Contact
 
 For inquiries, reach out via [GitHub Discussions](https://github.com/chengduman/zhongpu-consulting-advisory/discussions) or [open a consultation](https://github.com/chengduman/zhongpu-consulting-advisory/issues/new?template=consultation.yml).
