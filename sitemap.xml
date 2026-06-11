@@ -6,12 +6,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/llm-cost-optimization-production-patterns.md</loc>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/mcp-server-announcement.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/multi-agent-architecture-patterns.md</loc>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/ai-agent-risk-cto-guide.md</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/ai-agent-governance-guardrails.md</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/llm-cost-optimization-production-patterns.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,13 +36,12 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>  <url>
-    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/ai-agent-governance-guardrails.md</loc>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/multi-agent-architecture-patterns.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/ai-agent-evaluation-beyond-accuracy.md</loc></loc>
+    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/ai-agent-evaluation-beyond-accuracy.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -35,10 +49,5 @@
     <loc>https://chengduman.github.io/zhongpu-consulting-advisory/posts/how-to-measure-ai-agent-roi-framework.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://chengduman.github.io/zhongpu-consulting-advisory/services.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>

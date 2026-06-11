@@ -20,12 +20,17 @@
         .badge { background: #0f3460; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
         .badge-new { background: #e94560; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
         .badge-gist { background: #6e5494; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
+        .badge-mcp { background: #059669; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
         article-list { display: block; }
         .article-item { padding: 10px 0; border-bottom: 1px solid #e2e8f0; }
         .article-item:last-child { border-bottom: none; }
         ul { list-style: none; padding: 0; }
         li { padding: 6px 0; }
+        .mcp-section { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 20px; margin: 1.5em 0; }
+        .mcp-section h2 { border-bottom-color: #86efac; margin-top: 0; }
         footer { margin-top: 4em; border-top: 1px solid #e2e8f0; color: #94a3b8; padding-top: 1em; font-size: 0.9em; }
+        .button { display: inline-block; background: #e94560; color: white; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 500; margin-top: 12px; }
+        .button:hover { background: #d63851; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -40,8 +45,34 @@
         <div class="service"><h3>Deployment & Ops</h3><p>Seamless integration, monitoring, and cost optimization.</p></div>
     </div>
 
+    <div class="mcp-section">
+        <h2>🤖 MCP Server for AI Agents</h2>
+        <p>AI agents can now hire Zhongpu Consulting directly. Our <strong>MCP Server</strong> exposes pay-per-use research and analysis tools that any MCP-compatible agent can call.</p>
+        <table style="width:100%; margin-top: 12px;">
+            <tr><td><strong>deep_scan</strong></td><td>$2</td><td>Multi-source research</td></tr>
+            <tr><td><strong>cross_validate</strong></td><td>$3</td><td>Cross-source verification</td></tr>
+            <tr><td><strong>synthesize_report</strong></td><td>$5</td><td>Structured report generation</td></tr>
+        </table>
+        <p style="margin-top: 8px;"><a href="mcp-server/README.md" style="color: #059669;">📖 MCP Server Documentation →</a></p>
+    </div>
+
     <h2>Articles</h2>
     <div class="article-list">
+        <div class="article-item">
+            <a href="posts/mcp-server-announcement.md">Introducing the Zhongpu Consulting MCP Server</a>
+            <span class="badge-new">New</span> <span class="badge-mcp">MCP</span>
+            <br><small>AI agents can now hire consultants directly via MCP — pay-per-use research, cross-validation, and report generation.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/ai-agent-risk-cto-guide.md">AI Agent Risk Management: 5 Things Every CTO Should Know</a>
+            <span class="badge-new">New</span>
+            <br><small>Cost runaway, action blindness, observability, governance debt, and vendor lock-in — production lessons from 30+ multi-agent deployments.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/ai-agent-governance-guardrails.md">AI Agent Governance: Building Production Guardrails That Actually Work</a>
+            <span class="badge-new">New</span>
+            <br><small>Three layers of agent governance — pre-execution policy, execution monitoring, and post-execution audit — with concrete implementation patterns.</small>
+        </div>
         <div class="article-item">
             <a href="posts/llm-cost-optimization-production-patterns.md">LLM Cost Optimization: Production Patterns for 2026</a>
             <span class="badge-new">New</span>
@@ -49,17 +80,14 @@
         </div>
         <div class="article-item">
             <a href="posts/cost-effective-ai-agent-deployment.md">Cost-Effective AI Agent Deployment: From $0 to Production</a>
-            <span class="badge-new">New</span>
             <br><small>Build and deploy production AI agents on a minimal budget using free tiers, open-source models, and smart architecture.</small>
         </div>
         <div class="article-item">
             <a href="posts/multi-agent-architecture-patterns.md">Building Multi-Agent Systems: Architecture Patterns for Production</a>
-            <span class="badge-new">New</span>
             <br><small>Five battle-tested patterns for production multi-agent systems — supervisor, pipeline, mesh, swarm, and market architectures.</small>
         </div>
         <div class="article-item">
             <a href="posts/ai-agent-evaluation-beyond-accuracy.md">AI Agent Evaluation: Beyond Simple Accuracy Metrics</a>
-            <span class="badge-new">New</span>
             <br><small>Three-level evaluation framework for enterprise AI agent systems — atomic tasks, multi-step workflows, and system-level outcomes.</small>
         </div>
         <div class="article-item">
@@ -70,14 +98,20 @@
 
     <h2>Gists</h2>
     <ul>
-        <li><a href="https://gist.github.com/chengduman/77ab0f17757ca2d19fd80f693725f3f9">Multi-Agent Cost Model</a> <span class="badge-gist">Code</span> — Python estimator with tiered routing, caching, and batch processing</li>
+        <li><a href="https://gist.github.com/chengduman/3e90f6aa8bc6e68405620014279e1dd3">AI Agent Risk Management</a> <span class="badge-gist">Code</span> <span class="badge-new">New</span> — Cost runaway, action blindness, observability, governance debt, vendor lock-in</li>
+        <li><a href="https://gist.github.com/chengduman/6d812fd481142e7ead7b8c2433d9efd4">AI Agent Governance: Three-Layer Guardrails</a> <span class="badge-gist">Code</span> <span class="badge-new">New</span> — Pre-execution policy, execution monitor, post-execution audit</li>
+        <li><a href="https://gist.github.com/chengduman/5609724f7fa421921c73d6250644c9ae">LLM Cost Optimization Patterns</a> <span class="badge-gist">Code</span> <span class="badge-new">New</span> — Tiered routing, semantic caching, prompt compression</li>
+        <li><a href="https://gist.github.com/chengduman/77ab0f17757ca2d19fd80f693725f3f9">Multi-Agent Cost Model</a> <span class="badge-gist">Code</span> — Python estimator with tiered routing, caching, batch processing</li>
         <li><a href="https://gist.github.com/chengduman/34fc247a96709aad80dd2660b84dda4d">Agent Evaluation Pipeline</a> <span class="badge-gist">Code</span> — Three-level evaluation framework with working Python code</li>
     </ul>
 
     <h2>Community Contributions</h2>
     <ul>
-        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/283">Open Multi-Agent</a> — LiteLLM provider integration <span class="badge">Discussion</span> <span class="badge-new">New</span></li>
-        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/223">Open Multi-Agent</a> — Cross-provider reasoning fallback <span class="badge">Discussion</span> <span class="badge-new">New</span></li>
+        <li><a href="https://github.com/ag2ai/ag2/pull/2533">AG2</a> — ToolPolicy interceptor chain for multi-agent governance <span class="badge">PR Review</span> <span class="badge-new">New</span></li>
+        <li><a href="https://github.com/microsoft/autogen/pull/7770">Microsoft AutoGen</a> — Agent safety guardrails with budget pre-check and code suggestions <span class="badge">PR Review</span> <span class="badge-new">New</span></li>
+        <li><a href="https://github.com/ag2ai/ag2/issues/2942">AG2</a> — Governance interceptor with budget enforcement <span class="badge">Issue</span> <span class="badge-new">New</span></li>
+        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/283">Open Multi-Agent</a> — LiteLLM provider integration with cost routing <span class="badge">Discussion</span></li>
+        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/223">Open Multi-Agent</a> — Cross-provider reasoning fallback <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/langgenius/dify/discussions/37333">Dify</a> — Enterprise Multi-Tenancy Architecture <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/browser-use/browser-use/discussions/5018">Browser-Use</a> — Stateful Session Models <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/khoj-ai/khoj/discussions/1341">Khoj</a> — Enterprise Knowledge Infrastructure <span class="badge">Discussion</span></li>
@@ -89,6 +123,7 @@
         <p><a href="services.html" class="button">📋 View Services & Pricing</a></p>
         <p style="margin-top: 12px; font-size: 0.85em; color: #94a3b8;">
             Payment via <a href="https://paypal.me/chengduman" style="color: #e94560;">PayPal.Me/chengduman</a>
+            &nbsp;·&nbsp; <strong>8 articles</strong> · <strong>5 Gists</strong> · <strong>10 community contributions</strong>
         </p>
         <p style="margin-top: 2em;">Zhongpu Consulting — Global AI Virtual Agent Advisory</p>
     </footer>
