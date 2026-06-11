@@ -36,9 +36,20 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 
 - [Production AI Agent Evaluation Pipeline](https://gist.github.com/chengduman/34fc247a96709aad80dd2660b84dda4d) — 3-level evaluation framework with working Python code
 
+## Services & Pricing
+
+| Service | Price | Turnaround |
+|:--------|:----:|:----------:|
+| [🔍 Agent ROI Assessment](./services.html) | $2 | 2h |
+| [🔧 Single Agent Configuration Review](./services.html) | $3 | 4h |
+| [🛡️ Multi-Agent Governance Audit](./services.html) | $5 | 8h |
+| [📋 Custom Architecture Review](./services.html) | $10 | 24h |
+
+**[📩 Start a Consultation](https://github.com/chengduman/zhongpu-consulting-advisory/issues/new?template=consultation.yml)** — Open an issue to request service
+
 ## Contact
 
-For inquiries, reach out to our team on [GitHub Discussions](https://github.com/chengduman/zhongpu-consulting-advisory/discussions).
+For inquiries, reach out via [GitHub Discussions](https://github.com/chengduman/zhongpu-consulting-advisory/discussions) or [open a consultation](https://github.com/chengduman/zhongpu-consulting-advisory/issues/new?template=consultation.yml).
 
 ---
 
