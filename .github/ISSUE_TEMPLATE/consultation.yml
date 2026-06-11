@@ -1,0 +1,70 @@
+name: 📩 Consultation Request
+description: Request a paid AI agent consulting engagement
+title: "[Consultation]: "
+labels: ["consultation", "paid-service"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in Zhongpu Consulting.
+
+        **Pricing:** $2–$10 per engagement. Full payment via GitHub Sponsors before delivery.
+        **Turnaround:** 2–24 hours depending on service tier.
+
+  - type: dropdown
+    id: service
+    attributes:
+      label: Service
+      options:
+        - 🔍 Agent ROI Assessment ($2)
+        - 🔧 Single Agent Configuration Review ($3)
+        - 🛡️ Multi-Agent Governance Audit ($5)
+        - 📋 Custom Architecture Review ($10)
+        - 📄 PEN Industry Report ($5)
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: input
+    id: company
+    attributes:
+      label: Company / Project
+      description: Tell us about your project or company
+      placeholder: e.g., Acme AI Corp
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you building? What framework do you use?
+      placeholder: e.g., We have a 5-agent system using AG2 for customer support...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you need help with?
+      description: Be specific — the scope determines the price
+      placeholder: e.g., We need a cost analysis and governance review
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      options:
+        - Standard (24h delivery)
+        - Priority (4h delivery)
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        After submitting, we'll respond within 2 hours with a confirmed price and timeline.
