@@ -4,40 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhongpu Consulting — Global AI Virtual Agent Advisory</title>
-    <meta name="description" content="Global AI virtual agent consulting for enterprises.">
+    <meta name="description" content="Global AI virtual agent consulting for enterprises. Strategy, architecture, development, deployment, and cost optimization for production AI agent systems.">
+    <meta name="keywords" content="AI agents, multi-agent systems, LLM consulting, agent evaluation, cost optimization, enterprise AI">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, system-ui, sans-serif; line-height: 1.6; color: #1a1a2e; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fafafa; }
         h1 { font-size: 2.5em; margin-bottom: 0.3em; color: #0f3460; }
+        h2 { color: #0f3460; margin: 1.5em 0 0.5em; border-bottom: 2px solid #e94560; padding-bottom: 0.2em; }
         .tagline { font-size: 1.2em; color: #e94560; font-weight: 500; margin-bottom: 2em; }
         .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 2em 0; }
         .service { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .service h3 { color: #0f3460; margin-bottom: 0.5em; }
-        a { color: #e94560; }
-        .badge { background: #0f3460; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; }
-        footer { margin-top: 4em; border-top: 1px solid #e2e8f0; color: #94a3b8; }
+        a { color: #e94560; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .badge { background: #0f3460; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
+        .badge-new { background: #e94560; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
+        .badge-gist { background: #6e5494; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 4px; }
+        article-list { display: block; }
+        .article-item { padding: 10px 0; border-bottom: 1px solid #e2e8f0; }
+        .article-item:last-child { border-bottom: none; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 6px 0; }
+        footer { margin-top: 4em; border-top: 1px solid #e2e8f0; color: #94a3b8; padding-top: 1em; font-size: 0.9em; }
     </style>
 </head>
 <body>
     <h1>Zhongpu Consulting</h1>
     <p class="tagline">We turn AI ambition into operational reality.</p>
-    <p>Zhongpu Consulting helps enterprises design, deploy, and scale AI virtual agent solutions.</p>
+    <p>Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual agent solutions that deliver measurable business outcomes.</p>
+    
     <div class="services">
         <div class="service"><h3>Strategy & Roadmapping</h3><p>High-impact automation with clear ROI projections.</p></div>
         <div class="service"><h3>Architecture Design</h3><p>LLM platforms, agent frameworks, integration patterns.</p></div>
         <div class="service"><h3>Agent Development</h3><p>Conversational flows, knowledge retrieval, multi-agent orchestration.</p></div>
-        <div class="service"><h3>Deployment & Ops</h3><p>Seamless integration, monitoring, and optimization.</p></div>
+        <div class="service"><h3>Deployment & Ops</h3><p>Seamless integration, monitoring, and cost optimization.</p></div>
     </div>
-    <h2>Latest Article</h2>
-    <p><a href="posts/how-to-measure-ai-agent-roi-framework.md">How to Measure AI Agent ROI: A Practical Framework</a></p>
+
+    <h2>Articles</h2>
+    <div class="article-list">
+        <div class="article-item">
+            <a href="posts/llm-cost-optimization-production-patterns.md">LLM Cost Optimization: Production Patterns for 2026</a>
+            <span class="badge-new">New</span>
+            <br><small>Practical guide to reducing multi-agent LLM costs by 60-80% — tiered routing, semantic caching, prompt compression, batch processing, and context budgeting.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/cost-effective-ai-agent-deployment.md">Cost-Effective AI Agent Deployment: From $0 to Production</a>
+            <span class="badge-new">New</span>
+            <br><small>Build and deploy production AI agents on a minimal budget using free tiers, open-source models, and smart architecture.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/multi-agent-architecture-patterns.md">Building Multi-Agent Systems: Architecture Patterns for Production</a>
+            <span class="badge-new">New</span>
+            <br><small>Five battle-tested patterns for production multi-agent systems — supervisor, pipeline, mesh, swarm, and market architectures.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/ai-agent-evaluation-beyond-accuracy.md">AI Agent Evaluation: Beyond Simple Accuracy Metrics</a>
+            <span class="badge-new">New</span>
+            <br><small>Three-level evaluation framework for enterprise AI agent systems — atomic tasks, multi-step workflows, and system-level outcomes.</small>
+        </div>
+        <div class="article-item">
+            <a href="posts/how-to-measure-ai-agent-roi-framework.md">How to Measure AI Agent ROI: A Practical Framework for Enterprise Teams</a>
+            <br><small>A complete framework for calculating the return on investment of AI agent implementations.</small>
+        </div>
+    </div>
+
+    <h2>Gists</h2>
+    <ul>
+        <li><a href="https://gist.github.com/chengduman/77ab0f17757ca2d19fd80f693725f3f9">Multi-Agent Cost Model</a> <span class="badge-gist">Code</span> — Python estimator with tiered routing, caching, and batch processing</li>
+        <li><a href="https://gist.github.com/chengduman/34fc247a96709aad80dd2660b84dda4d">Agent Evaluation Pipeline</a> <span class="badge-gist">Code</span> — Three-level evaluation framework with working Python code</li>
+    </ul>
+
     <h2>Community Contributions</h2>
     <ul>
+        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/283">Open Multi-Agent</a> — LiteLLM provider integration <span class="badge">Discussion</span> <span class="badge-new">New</span></li>
+        <li><a href="https://github.com/open-multi-agent/open-multi-agent/issues/223">Open Multi-Agent</a> — Cross-provider reasoning fallback <span class="badge">Discussion</span> <span class="badge-new">New</span></li>
         <li><a href="https://github.com/langgenius/dify/discussions/37333">Dify</a> — Enterprise Multi-Tenancy Architecture <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/browser-use/browser-use/discussions/5018">Browser-Use</a> — Stateful Session Models <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/khoj-ai/khoj/discussions/1341">Khoj</a> — Enterprise Knowledge Infrastructure <span class="badge">Discussion</span></li>
         <li><a href="https://github.com/langchain-ai/langchain/issues/38065">LangChain</a> — Missing Observability Layer <span class="badge">Issue</span></li>
         <li><a href="https://github.com/crewAIInc/crewAI/issues/6118">CrewAI</a> — Dynamic Agent Dependency Graphs <span class="badge">Issue</span></li>
     </ul>
-    <footer><p>Zhongpu Consulting — Global AI Virtual Agent Advisory</p></footer>
+
+    <footer>
+        <p>Zhongpu Consulting — Global AI Virtual Agent Advisory</p>
+        <p>Contact: <a href="https://github.com/chengduman/zhongpu-consulting-advisory/discussions">GitHub Discussions</a></p>
+    </footer>
 </body>
 </html>
