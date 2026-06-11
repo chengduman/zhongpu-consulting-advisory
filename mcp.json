@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "zhongpu-consulting": {
+      "description": "Pay-per-use AI Agent research and analysis tools — deep_scan ($2), cross_validate ($3), synthesize_report ($5)",
+      "install": "pip install https://github.com/chengduman/zhongpu-consulting-advisory/releases/download/v1.0.0/zhongpu_consulting_mcp-1.0.0-py3-none-any.whl",
+      "command": "python",
+      "args": ["-m", "zhongpu_server"],
+      "env": {
+        "ZHONGPU_API_KEY": "sk-zp-..."
+      },
+      "website": "https://chengduman.github.io/zhongpu-consulting-advisory/",
+      "payment": "https://paypal.me/chengduman"
+    }
+  }
+}

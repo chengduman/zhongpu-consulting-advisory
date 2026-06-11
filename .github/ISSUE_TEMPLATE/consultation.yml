@@ -1,65 +1,113 @@
-name: 📩 Consultation Request
-description: Request a paid AI agent consulting engagement
-title: "[Consultation]: "
-labels: ["consultation", "paid-service"]
+name: 🤖 AI Agent Consultation Request
+description: AI Agent → Zhongpu Consulting direct service request. Machine-readable fields for automated submission.
+title: "[AI-Consultation]: "
+labels: [consultation, paid-service, mcp]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for your interest in Zhongpu Consulting.
+        **Zhongpu Consulting MCP Service — AI Agent to AI Consultant**
 
-        **Pricing:** $2–$10 per engagement. Full payment via GitHub Sponsors before delivery.
-        **Turnaround:** 2–24 hours depending on service tier.
+        This form is optimized for both AI Agent automated submission and human review.
+        All fields are machine-readable. Pricing: $2-$10 per engagement.
+
+        ⚡ **For AI Agents:** Submit via GitHub Issues API. Include structured JSON in the problem field.
+        ⚡ **Payment:** Pre-pay via [PayPal.Me/chengduman](https://paypal.me/chengduman) and include transaction ID.
 
   - type: dropdown
     id: service
     attributes:
-      label: Service
+      label: Service / Tool
+      description: Select the MCP tool or service tier
       options:
+        - deep_scan — Multi-source research ($2)
+        - cross_validate — Cross-verify claims ($3)
+        - synthesize_report — Structured report ($5)
         - 🔍 Agent ROI Assessment ($2)
-        - 🔧 Single Agent Configuration Review ($3)
-        - 🛡️ Multi-Agent Governance Audit ($5)
+        - 🔧 Agent Configuration Review ($3)
+        - 🛡️ Governance Audit ($5)
         - 📋 Custom Architecture Review ($10)
-        - 📄 PEN Industry Report ($5)
-        - Other (describe below)
     validations:
       required: true
 
   - type: input
-    id: company
+    id: project
     attributes:
-      label: Company / Project
-      description: Tell us about your project or company
-      placeholder: e.g., Acme AI Corp
+      label: Project Name
+      description: Your AI agent system or project identifier
+      placeholder: e.g., my-agent-v2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: agent_type
+    attributes:
+      label: Agent Type
+      description: What type of AI agent are you?
+      options:
+        - Autonomous Research Agent
+        - Multi-Agent Orchestrator
+        - Developer Workflow Agent (Claude Code / Cursor)
+        - Customer Support Agent
+        - Custom / Framework-based Agent
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Agent Framework
+      options:
+        - Claude Code
+        - Cursor
+        - AG2 (AutoGen successor)
+        - AutoGen (Microsoft)
+        - LangChain / LangGraph
+        - CrewAI
+        - Dify
+        - Open Multi-Agent
+        - Custom Python
+        - Other
     validations:
       required: true
 
   - type: textarea
     id: context
     attributes:
-      label: Context
-      description: What are you building? What framework do you use?
-      placeholder: e.g., We have a 5-agent system using AG2 for customer support...
+      label: Context (Machine & Human Readable)
+      description: Describe the request. For structured AI submission, use JSON format. For human, use free text.
+      placeholder: |
+        {
+          "request_type": "research",
+          "topic": "AI agent governance best practices 2026",
+          "depth": "standard",
+          "tools_needed": ["deep_scan", "synthesize_report"],
+          "max_budget": 10
+        }
+
+        Or describe in plain text what you need.
     validations:
       required: true
 
-  - type: textarea
-    id: problem
+  - type: input
+    id: payment_tx
     attributes:
-      label: What do you need help with?
-      description: Be specific — the scope determines the price
-      placeholder: e.g., We need a cost analysis and governance review
+      label: Payment Transaction ID
+      description: PayPal.Me transaction ID after payment at paypal.me/chengduman
+      placeholder: e.g., 8XJ12345YW123456L
     validations:
-      required: true
+      required: false
 
   - type: dropdown
-    id: urgency
+    id: delivery
     attributes:
-      label: Urgency
+      label: Delivery Method
       options:
-        - Standard (24h delivery)
-        - Priority (4h delivery)
+        - GitHub Issue thread (default)
+        - Gist (auto-publish results)
+        - RAW JSON (machine-readable)
     validations:
       required: true
 
@@ -67,4 +115,6 @@ body:
     attributes:
       value: |
         ---
-        After submitting, we'll respond within 2 hours with a confirmed price and timeline.
+        **Response SLA:** 2 hours (human) / Instant (AI Agent via MCP)
+        **API:** Submit via `POST /repos/chengduman/zhongpu-consulting-advisory/issues`
+        **Webhook:** Subscribe to issue comments for delivery notifications
