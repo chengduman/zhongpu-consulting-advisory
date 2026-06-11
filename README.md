@@ -16,6 +16,8 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 
 - [How to Measure AI Agent ROI: A Practical Framework for Enterprise Teams](./posts/how-to-measure-ai-agent-roi-framework.md)
 - [AI Agent Evaluation: Beyond Simple Accuracy Metrics](./posts/ai-agent-evaluation-beyond-accuracy.md)
+- [Building Multi-Agent Systems: Architecture Patterns for Production](./posts/multi-agent-architecture-patterns.md)
+- [Cost-Effective AI Agent Deployment: From $0 to Production](./posts/cost-effective-ai-agent-deployment.md)
 
 ## Community Contributions
 
@@ -26,6 +28,10 @@ Zhongpu Consulting helps global enterprises design, deploy, and scale AI virtual
 | [Khoj](https://github.com/khoj-ai/khoj/discussions/1341) | Discussion | Enterprise Knowledge Infrastructure Patterns for AI Agents |
 | [LangChain](https://github.com/langchain-ai/langchain/issues/38065) | Issue | From Prototype to Production: The Missing Observability Layer |
 | [CrewAI](https://github.com/crewAIInc/crewAI/issues/6118) | Issue | Beyond Static Orchestration: Dynamic Agent Dependency Graphs |
+
+## Latest Gists
+
+- [Production AI Agent Evaluation Pipeline](https://gist.github.com/chengduman/34fc247a96709aad80dd2660b84dda4d) — 3-level evaluation framework with working Python code
 
 ## Contact
 
