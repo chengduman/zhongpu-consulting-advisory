@@ -8,6 +8,12 @@ dependencies = [
     "httpx>=0.27.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/chengduman/zhongpu-consulting-advisory"
+Repository = "https://github.com/chengduman/zhongpu-consulting-advisory"
+"Release v1.0.0" = "https://github.com/chengduman/zhongpu-consulting-advisory/releases/tag/v1.0.0"
+"Download Wheel" = "https://github.com/chengduman/zhongpu-consulting-advisory/releases/download/v1.0.0/zhongpu_consulting_mcp-1.0.0-py3-none-any.whl"
+
 [project.scripts]
 zhongpu-server = "zhongpu_server:main"
 
