@@ -178,7 +178,11 @@ async def call_tool(name: str, arguments: dict) -> CallToolResult:
     except Exception as e:
         return CallToolResult(isError=True, content=[TextContent(type="text", text=f"Error: {e}")])
 
-async def main():
+def main():
+    """Synchronous wrapper for the MCP server entry point."""
+    asyncio.run(_main())
+
+async def _main():
     from mcp.server.stdio import stdio_server
     async with stdio_server() as (r, w):
         await app.run(r, w, InitializationOptions(
@@ -191,4 +195,4 @@ async def main():
         ))
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

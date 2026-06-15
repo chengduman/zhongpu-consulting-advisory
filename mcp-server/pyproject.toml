@@ -19,3 +19,8 @@ zhongpu-server = "zhongpu_server:main"
 
 [tool.uv]
 dev-dependencies = []
+
+[[tool.uv.publish]]
+url = "https://upload.pypi.org/legacy/"
+credential-provider = "env"
+# Set UV_PUBLISH_TOKEN in environment to publish
