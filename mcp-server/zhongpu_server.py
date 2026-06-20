@@ -42,9 +42,9 @@ PRICING = {"deep_scan": 2.0, "cross_validate": 3.0, "synthesize_report": 5.0}
 import urllib.request, urllib.parse
 
 SEARCH_ENGINES = [
+    "https://www.bing.com/search?q=",
+    "https://www.baidu.com/s?wd=",
     "https://lite.duckduckgo.com/lite/?q=",
-    "https://www.startpage.com/sp/search?query=",
-    "https://search.brave.com/search?q=",
 ]
 
 async def _web_search(query: str) -> list[dict]:
@@ -57,7 +57,7 @@ async def _web_search(query: str) -> list[dict]:
                 headers={"User-Agent": "Mozilla/5.0 (compatible; ZhongpuConsulting/1.0)"},
             )
             loop = asyncio.get_event_loop()
-            resp = await loop.run_in_executor(None, lambda: urllib.request.urlopen(req, timeout=8))
+            resp = await loop.run_in_executor(None, lambda: urllib.request.urlopen(req, timeout=4))
             html = resp.read().decode("utf-8", errors="replace")
             return [{"source": base, "html_len": len(html)}]
         except Exception:
@@ -100,10 +100,44 @@ async def cross_validate(claims: list[str]) -> str:
     return "\n".join(output)
 
 async def synthesize_report(topic: str, fmt: str = "markdown") -> str:
-    """Generate a structured report from research data."""
+    """Generate a structured report using LLM synthesis from research data."""
     raw = await deep_scan(topic, "deep")
-    parts = ["# " + topic, "", "## Executive Summary", "", "## Key Findings", "", "## Sources", "", raw]
-    return "\n".join(parts)
+    
+    # Use DeepSeek to synthesize the raw search data into a real report
+    import openai
+    client = openai.OpenAI(
+        api_key=os.environ.get("DEEPSEEK_API_KEY", os.environ.get("ZHONGPU_API_KEY", "")),
+        base_url="https://api.deepseek.com/v1",
+    )
+    
+    prompt = f"""You are a research analyst at Zhongpu Consulting. Synthesize the following web search data into a professional consulting report in Chinese.
+
+Topic: {topic}
+
+Raw search data:
+{raw[:4000]}
+
+Produce a report with:
+## 执行摘要 (3-5 key findings)
+## 市场分析 (market size, trends, drivers)
+## 关键参与者 (main players, their positioning)
+## 战略洞察 (strategic implications)
+## 数据来源 (note: based on web search synthesis)
+
+Keep it data-driven, concise, professional. Use markdown formatting."""
+    
+    try:
+        resp = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.3,
+            max_tokens=2000,
+        )
+        return resp.choices[0].message.content
+    except Exception as e:
+        # Fallback to structural report if LLM unavailable
+        parts = ["# " + topic, "", "## Executive Summary", "", "## Key Findings", "", "## Sources", "", raw]
+        return "\n".join(parts)
 
 # ─── MCP Server ──────────────────────────────────────
 
