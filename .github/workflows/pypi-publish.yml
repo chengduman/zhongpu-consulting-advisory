@@ -1,0 +1,46 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no actual publish)'
+        required: false
+        default: 'true'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Required for Trusted Publishing
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: mcp-server
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Build
+        run: |
+          cd mcp-server
+          uv build
+
+      - name: Validate package
+        run: |
+          cd mcp-server
+          uv publish --dry-run
+
+      - name: Publish to PyPI
+        if: ${{ github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == 'false') }}
+        run: |
+          cd mcp-server
+          uv publish
