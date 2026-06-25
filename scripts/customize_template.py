@@ -1,105 +1,73 @@
-"""Customize reference.docx per GB/T 9704-2012 党政机关公文格式 (latest)."""
+"""Customize reference.docx — force every style to GB/T 9704-2012 at definition level."""
 from docx import Document
-from docx.shared import Pt, Cm, RGBColor, Emu
-from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
-from docx.oxml.ns import qn, nsdecls
-from docx.oxml import parse_xml
+from docx.shared import Pt, Cm, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
 import os
 
-ref_path = r"C:\Users\cheng\zhongpu-consulting-advisory\templates\reference.docx"
-doc = Document(ref_path)
+path = r"C:\Users\cheng\zhongpu-consulting-advisory\templates\reference.docx"
+doc = Document(path)
 
-# ═══════════════════════════════════════════════════
-# GB/T 9704-2012 党政机关公文格式
-# 
-# 页边距: 上37mm 下35mm 左28mm 右26mm
-# 标题: 小标宋体 二号(22pt), 居中 (无则用宋体代替)
-# 一级标题: 黑体 三号(16pt)  
-# 二级标题: 楷体 三号(16pt) 加粗
-# 三级标题: 仿宋 三号(16pt) 加粗
-# 正文: 仿宋 三号(16pt)  
-# 行距: 28磅固定值
-# 页码: 宋体 四号(14pt) 左右各"一"字线
-# ═══════════════════════════════════════════════════
+# Page: A4 with GB/T margins
+for sec in doc.sections:
+    sec.page_width = Cm(21); sec.page_height = Cm(29.7)
+    sec.top_margin = Cm(3.7); sec.bottom_margin = Cm(3.5)
+    sec.left_margin = Cm(2.8); sec.right_margin = Cm(2.6)
 
-# Page margins (exact from standard)
-for section in doc.sections:
-    section.top_margin = Cm(3.7)
-    section.bottom_margin = Cm(3.5)
-    section.left_margin = Cm(2.8)
-    section.right_margin = Cm(2.6)
+# Normal: 仿宋 16pt 28pt line spacing
+ns = doc.styles['Normal']
+ns.font.name = '仿宋'; ns.font.size = Pt(16); ns.font.color.rgb = RGBColor(0,0,0)
+ns.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
+ns.paragraph_format.line_spacing = Pt(28)
+ns.paragraph_format.space_before = Pt(0); ns.paragraph_format.space_after = Pt(0)
 
-# ── Normal: 仿宋 三号(16pt), 28pt fixed line spacing ──
-style = doc.styles['Normal']
-style.font.name = '仿宋'
-style.font.size = Pt(16)
-style.font.color.rgb = RGBColor(0, 0, 0)
-style.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
-pf = style.paragraph_format
-pf.line_spacing = Pt(28)
-pf.space_before = Pt(0)
-pf.space_after = Pt(0)
+# Heading 1: 宋体 22pt centered
+h1 = doc.styles['Heading 1']
+h1.font.name = '宋体'; h1.font.size = Pt(22); h1.font.bold = True; h1.font.color.rgb = RGBColor(0,0,0)
+h1.element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+h1.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+h1.paragraph_format.line_spacing = Pt(28)
 
-# ── Heading 1: 宋体 二号(22pt) centered (代替小标宋) ──
-if 'Heading 1' in [s.name for s in doc.styles]:
-    hs = doc.styles['Heading 1']
-    hs.font.name = '宋体'
-    hs.font.size = Pt(22)
-    hs.font.bold = True
-    hs.font.color.rgb = RGBColor(0, 0, 0)
-    hs.element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
-    hs.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    hs.paragraph_format.space_before = Pt(0)
-    hs.paragraph_format.space_after = Pt(0)
-    hs.paragraph_format.line_spacing = Pt(28)
+# Heading 2: 黑体 16pt
+h2 = doc.styles['Heading 2']
+h2.font.name = '黑体'; h2.font.size = Pt(16); h2.font.bold = False; h2.font.color.rgb = RGBColor(0,0,0)
+h2.element.rPr.rFonts.set(qn('w:eastAsia'), '黑体')
+h2.paragraph_format.line_spacing = Pt(28)
 
-# ── Heading 2: 黑体 三号(16pt) ──
-if 'Heading 2' in [s.name for s in doc.styles]:
-    hs = doc.styles['Heading 2']
-    hs.font.name = '黑体'
-    hs.font.size = Pt(16)
-    hs.font.bold = False  # 公文一级标题不加粗
-    hs.font.color.rgb = RGBColor(0, 0, 0)
-    hs.element.rPr.rFonts.set(qn('w:eastAsia'), '黑体')
-    hs.paragraph_format.space_before = Pt(0)
-    hs.paragraph_format.space_after = Pt(0)
-    hs.paragraph_format.line_spacing = Pt(28)
+# Heading 3: 楷体 16pt bold
+h3 = doc.styles['Heading 3']
+h3.font.name = '楷体'; h3.font.size = Pt(16); h3.font.bold = True; h3.font.color.rgb = RGBColor(0,0,0)
+h3.element.rPr.rFonts.set(qn('w:eastAsia'), '楷体')
+h3.paragraph_format.line_spacing = Pt(28)
 
-# ── Heading 3: 楷体 三号(16pt) ──
-if 'Heading 3' in [s.name for s in doc.styles]:
-    hs = doc.styles['Heading 3']
-    hs.font.name = '楷体'
-    hs.font.size = Pt(16)
-    hs.font.bold = True  # 公文二级标题加粗
-    hs.font.color.rgb = RGBColor(0, 0, 0)
-    hs.element.rPr.rFonts.set(qn('w:eastAsia'), '楷体')
-    hs.paragraph_format.space_before = Pt(0)
-    hs.paragraph_format.space_after = Pt(0)
-    hs.paragraph_format.line_spacing = Pt(28)
+# Heading 4: 仿宋 16pt bold
+h4 = doc.styles['Heading 4']
+h4.font.name = '仿宋'; h4.font.size = Pt(16); h4.font.bold = True; h4.font.color.rgb = RGBColor(0,0,0)
+h4.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
+h4.paragraph_format.line_spacing = Pt(28)
 
-# ── Heading 4: 仿宋 三号(16pt) bold ──
-if 'Heading 4' in [s.name for s in doc.styles]:
-    hs = doc.styles['Heading 4']
-    hs.font.name = '仿宋'
-    hs.font.size = Pt(16)
-    hs.font.bold = True
-    hs.font.color.rgb = RGBColor(0, 0, 0)
-    hs.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
-    hs.paragraph_format.space_before = Pt(0)
-    hs.paragraph_format.space_after = Pt(0)
-    hs.paragraph_format.line_spacing = Pt(28)
+# Body Text: 仿宋 16pt (pandoc uses this for body paragraphs)
+for sn in ['Body Text', 'Body Text 2', 'Body Text 3', 'Body Text Indent']:
+    try:
+        bt = doc.styles[sn]
+        bt.font.name = '仿宋'; bt.font.size = Pt(16); bt.font.color.rgb = RGBColor(0,0,0)
+        bt.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
+        bt.paragraph_format.line_spacing = Pt(28)
+    except: pass
 
-# ── Table style: 仿宋 五号(10.5pt) ──
-if 'Table' in [s.name for s in doc.styles]:
-    ts = doc.styles['Table']
-    ts.font.name = '仿宋'
-    ts.font.size = Pt(10.5)
-    ts.font.color.rgb = RGBColor(0, 0, 0)
-    ts.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
-    ts.paragraph_format.line_spacing = Pt(16)
-    ts.paragraph_format.space_before = Pt(0)
-    ts.paragraph_format.space_after = Pt(0)
+# Table: 仿宋 10.5pt
+ts = doc.styles['Table']
+ts.font.name = '仿宋'; ts.font.size = Pt(10.5); ts.font.color.rgb = RGBColor(0,0,0)
+ts.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
+ts.paragraph_format.line_spacing = Pt(16)
 
-doc.save(ref_path)
-print(f"GB/T 9704-2012 template: {os.path.getsize(ref_path)} bytes")
-print("  仿宋16pt | 28磅行距 | 页边距37/35/28/26mm")
+# TOC styles
+for sn in ['TOC 1', 'TOC 2', 'TOC Heading']:
+    try:
+        toc = doc.styles[sn]
+        toc.font.name = '仿宋'; toc.font.size = Pt(12)
+        toc.element.rPr.rFonts.set(qn('w:eastAsia'), '仿宋')
+    except: pass
+
+doc.save(path)
+print(f"Template: {os.path.getsize(path)} bytes — All styles GB/T 9704-2012")
